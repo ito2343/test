@@ -2,6 +2,7 @@ import psycopg2
 import sys
 import base64
 from psycopg2.extras import DictCursor
+import json
 
 put ='''\n郵便番号とデータベースがマッチしました。
 ----------------------------------------
@@ -12,7 +13,6 @@ put ='''\n郵便番号とデータベースがマッチしました。
 ----------------------------------------\n'''
 
 fil ='''候補の郵便番号をデータベースから抽出しました。\n{}\n'''
-
 
 print('\n郵便番号から住所を検索します。')
 while True:
@@ -28,8 +28,15 @@ while True:
     if flag == 1:
         break
 
-s = "arena!wrep19"
-b = s.encode("UTF-8")
+args = sys.argv
+
+f = open(args[1], 'r')
+json_dict = json.load(f)
+pa = json_dict['pass']
+json_str = json.dumps(pa)
+
+a = json_str.strip('""')
+b = a.encode("UTF-8")
 e = base64.b64encode(b)
 s1 = e.decode("UTF-8")
 b1 = s1.encode("UTF-8")
