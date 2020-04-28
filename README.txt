@@ -18,9 +18,9 @@
 
 
 ##Usage
-  1.コマンドプロンプトを起動、Pythonファイルが置いてあるパスを指定し、Python起動
+  1.コマンドプロンプトを起動、Pythonファイルが置いてあるパスを指定し、Python起動(DBのパスワードが入ったJSONファイルも続けて入力する）
 
-    python C:\Users\Desktop\postgresSQL_connect.py
+    python C:\Users\Desktop\postgresSQL_connect.py C:\Users\guest4\Desktop\test.json
 
   2.郵便番号の入力を求められるので、ハイフン抜きで入力する
   
