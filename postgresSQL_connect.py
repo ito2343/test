@@ -36,16 +36,12 @@ pa = json_dict['pass']
 json_str = json.dumps(pa)
 
 a = json_str.strip('""')
-b = a.encode("UTF-8")
-e = base64.b64encode(b)
-s1 = e.decode("UTF-8")
-b1 = s1.encode("UTF-8")
-d = base64.b64decode(b1)
-s2 = d.decode("UTF-8")
+d = base64.b64decode(a)
+s = d.decode("UTF-8")
 
 users = 'postgres'
 dbnames = 'test'
-passwords = s2
+passwords = s
 
 conn = psycopg2.connect(" user=" + users +" dbname=" + dbnames +" password=" + passwords)
 
